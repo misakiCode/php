@@ -1,3 +1,18 @@
+## サーバーの立ち上げ
+`php artisan serve`<br>
+http://127.0.0.1:8000
+で確認可能
+
+## routeの確認
+`php artisan route:list`<br>
+自動生成される場合もあるので、たまに確認すると良い
+
+
+
+
+### 参考サイト
+https://laravel-times.com/index.php/2021/06/06/laravel-tutorial/
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
