@@ -120,6 +120,7 @@ htmlに記載するパスはpublicから探されるので以下のように記�
 ```
 <link rel="stylesheet" href="/css/styles.css">
 ```
+ [cssが読み込まれなかった時の解決サイト](https://poppotennis.com/posts/laravel-app-404)
 ***
 
 
