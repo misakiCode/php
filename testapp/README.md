@@ -20,12 +20,35 @@ php artisan route:list
 getで/folders/{id}/tasksにリクエストが来たらTaskControllerコントローラのindexメソッドを呼び出す。<br>
 アプリケーションの中でURLを参照する際はtasks.indexを使う。
 
-## コントローラクラスの生成
+## コントローラクラス
+### コントローラクラスの生成
 コントローラクラスはcmdからひな形を生成する。<br>
 ```php:title
 $ php artisan make:controller TaskController
 ```
 `app/Http/Controllers`にTaskControllerが生成される。
+### コントローラクラスの記述
+```
+namespace App\Http\Controllers;
+use App\Folder;
+use Illuminate\Http\Request;
+
+class TaskController extends Controller
+{
+    public function index()
+    {
+        $folders = Folder::all();
+
+        return view('tasks/index', [
+            'folders' => $folders,
+        ]);
+    }
+}
+```
+`Folder`モデルの`all`クラスメソッドですべてのデータをデータベースから取得する。SQLを書かずにデータを取得可能。  
+`view`関数でテンプレートに取得したデータを渡した結果を返却している。  
+第1引数：テンプレートファイル名  
+第2引数：テンプレートに渡すデータ
 
 ## データベースの設定
 データベースは先に作成しておく。.envファイルで設定を行う<br>
@@ -109,6 +132,14 @@ $ php artisan db:seed --class=FoldersTableSeeder
 ```
 - composerコマンド：作成したシーダークラスをアプリケーションに認識させるためのもの
 db:seedコマンドで「Database seeding completed successfully」と帰ってきたら成功。データが追加されている。
+
+## テンプレート
+テンプレートとはアプリケーションがレスポンスするHTMLのひな形で、制御構文や変数の展開を記述することができる。ページの枠組みだけ用意して、URLによって変わる箇所だけが穴埋めになっているイメージ。ひな形が同じでもデータを変えることで別のページを作り出せる仕組み。
+
+## Bladeテンプレートエンジン　テンプレートの作成
+`resources/view`ディレクトリに`tasks（任意の名前）`ディレクトリを作成。ここがタスク関連のテンプレート置き場になる。  
+`tasks`ディレクトリに`index.blade.php（indexの部分は任意）`ファイルを作成、`.blade.php`という拡張子はテンプレートファイルとして認識されるために決まっている。
+
 
 
 ## 詰まった個所
