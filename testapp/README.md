@@ -156,6 +156,7 @@ htmlに記載するパスはpublicから探されるので以下のように記�
 
 
 ### 参考サイト
+- [laravelドキュメント](https://readouble.com/laravel/)
 - [環境構築](https://laravel-times.com/index.php/2021/06/06/laravel-tutorial/)
 - [todoリストのチュートリアル](https://www.hypertextcandy.com/laravel-tutorial-todo-app-list-folders)
 - [cssが読み込まれなかった時の解決サイト](https://poppotennis.com/posts/laravel-app-404)
