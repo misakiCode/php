@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){return redirect('/myusers');});
-Route::get('/myusers', 'App\Http\Controllers\MyUserController@index');
-Route::post('/myusers', 'App\Http\Controllers\MyUserController@store');
-Route::delete('/myusers/{id}', 'App\Http\Controllers\MyUserController@destroy');
+Route::get('/', function(){return redirect('/folders');});
+
 
 //https://www.hypertextcandy.com/laravel-tutorial-todo-app-list-folders/
-Route::get('folders/{id}/tasks','App\Http\Controllers\TaskController@index')->name('task.index');
+Route::get('folders/{id}/tasks','App\Http\Controllers\TaskController@index')->name('tasks.index');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMyUsersTable extends Migration
+class CreateFoldersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateMyUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('my_users', function (Blueprint $table) {
-            $table->id();
-        $table->string('name');  // 追加
-        $table->integer('age');  // 追加
-        $table->string('email'); // 追加
-        $table->timestamps();
+        Schema::create('folders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title', 20);
+            $table->timestamps();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateMyUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('my_users');
+        Schema::dropIfExists('folders');
     }
 }
